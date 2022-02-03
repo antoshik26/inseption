@@ -12,6 +12,6 @@ RUN chmod +x setup_db.sh
 EXPOSE 3306
 
 COPY serv_db.cnf /etc/mysql/
-RUN chmod 777 /etc/mysql/serv_bd.cnf
+RUN chmod 777 /etc/mysql/serv_db.cnf
 
 ENTRYPOINT ["sh", "/setup.sh"]
