@@ -26,6 +26,13 @@ ps	:
 logs	:	
 		@ docker-compose -f $(Compose_file) logs
 
+clean:
+	yes 'y' | docker builder prune 
+fclean:
+	yes 'y' | docker system prune
+	
+
 re:	stop build_and_start
+fre:	clean re
 
 .PHONY:	build_and_start start stop ps re down logs

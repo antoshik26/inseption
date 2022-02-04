@@ -4,7 +4,7 @@ services:
     mariadb:
         image: mariadb:inc
         volumes:
-            - ~/data/maria:/var/lib/mysql
+                - maria:/var/lib/mysql
         restart: always
         environment:
             MARIA_LOGIN: "${MARIA_LOGIN}"
@@ -24,7 +24,7 @@ services:
             - mariadb
         image: wordpress:inc
         volumes:
-            - ~/data/wp:/var/www/wordpress
+            - wp:/wordpress
         restart: always
         environment:
             WP_LOGIN: "${WP_LOGIN}"
@@ -47,9 +47,9 @@ services:
         depends_on:
             - wordpress
         ports:
-             - "443"
+                - "443:443"
         volumes:
-            - ~/data/wp:/var/www/wordpress
+            - wp:/var/www/wordpress
         build:
             context: ./nginx
             dockerfile: Dockerfile
@@ -62,3 +62,16 @@ services:
 networks:
     vpcbr:
         driver: bridge
+
+volumes: 
+        maria:
+                driver_opts:
+                        type: none
+                        o: bind
+                        device: /root/data/maria
+        wp:
+                driver_opts:
+                        type: none
+                        o: bind
+                        device:  /root/data/wp
+                      

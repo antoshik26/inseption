@@ -1,9 +1,9 @@
 #!bin/bash
 
 service mysql start
-mysql -e "CREATE USER '${MARIA_LOGIN}'@'localhost' identified by '${MARIA_PASS}';" &&\
+mysql -e "CREATE USER 'dmadelei'@'localhost' identified by '11';" &&\
 mysql -e "CREATE DATABASE IF NOT EXISTS wordpress;" &&\
-mysql -e "GRANT ALL PRIVILEGES ON *.* TO '${MARIA_LOGIN}'@'%' IDENTIFIED BY '${MARIA_PASS}';" &&\
+mysql -e "GRANT ALL PRIVILEGES ON *.* TO 'dmadelei'@'%' IDENTIFIED BY '11';" &&\
 mysql -e "FLUSH PRIVILEGES;"
 service mysql stop
 

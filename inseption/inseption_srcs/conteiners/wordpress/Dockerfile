@@ -7,11 +7,11 @@ RUN apt-get -y install curl
 RUN apt-get -y install openssl
 RUN apt-get -y install mariadb-client
 RUN apt-get -y install vim
-RUN apt-get -y install procps
+RUN apt-get -y install procpsi
 
 RUN	wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 RUN	chmod +x wp-cli.phar
-RUN	mv wp-cli.phar /usr/local/bin/wp 
+RUN	mv wp-cli.phar /usr/local/bin/wp
 RUN echo "listen = 5000" >> /etc/php/7.3/fpm/pool.d/www.conf
 RUN echo "access.log = /var/log/$pool.access.log" >> /etc/php/7.3/fpm/pool.d/www.conf
 RUN mkdir -p /var/www/wordpress 
