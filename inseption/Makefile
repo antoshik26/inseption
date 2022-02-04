@@ -10,18 +10,22 @@ build_and_start	:
 start	:
 		@ docker-compose -f $(Compose_file) start
 		@ sleep 5
+		@ docker-compose -f $(Compose_file) logs
 
 stop	:
 		@ docker-compose -f $(Compose_file) stop
-		@ sleep
+		@ sleep 5
 
-doun	:
-		@ docker-compose -f $(Compose_file) doun
-		@ sleep
+down	:
+		@ docker-compose -f $(Compose_file) down
+		@ sleep 5
 
-ps	:
+ps	:	
 		@ docker-compose -f $(Compose_file) ps
+
+logs	:	
+		@ docker-compose -f $(Compose_file) logs
 
 re:	stop build_and_start
 
-.PHONY:	build_and_start start stop ps re
+.PHONY:	build_and_start start stop ps re down logs

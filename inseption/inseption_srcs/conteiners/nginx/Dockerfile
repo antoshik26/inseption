@@ -1,6 +1,16 @@
 From debian:buster
 
 RUN apt-get update
-RUN apt-get install -y nginx vim net-tools procps
+RUN apt-get install -y nginx openssl vim net-tools procps
 
+RUN rm /etc/nginx/sites-available/default
+RUN rm /etc/nginx/sites-enabled/default
 COPY nginx.conf /etc/nginx/sites-available/default
+RUN ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+RUN mkdir /etc/nginx/ssl
+RUN openssl req -newkey rsa:4096 -x509 -days 365 -nodes -out /etc/nginx/ssl/demadelei.42.fr.crt -keyout /etc/nginx/ssl/demadelei.42.fr.key -subj "/C=RU/ST=Moscow/CN=demadelei"
+RUN chmod 777 /etc/nginx/ssl/*
+RUN chmod 777 /var/www
+RUN chown -R www-data:www-data /var/www
+
+ENTRYPOINT ["nginx", "-g", "daemon off;"]

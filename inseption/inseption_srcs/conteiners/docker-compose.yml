@@ -10,7 +10,7 @@ services:
             MARIA_LOGIN: "${MARIA_LOGIN}"
             MARIA_PASS: "${MARIA_PASS}"
         ports: 
-            - "3306:3306"
+            - "3306"
         build:
             context: ./mariadb
             dockerfile: Dockerfile 
@@ -34,7 +34,7 @@ services:
             MARIA_LOGIN: "${MARIA_LOGIN}"
             MARIA_PASS: "${MARIA_PASS}"
         ports:
-            - "5000:5000"
+            - "5000"
         build:
             context: ./wordpress
             dockerfile: Dockerfile
@@ -47,7 +47,7 @@ services:
         depends_on:
             - wordpress
         ports:
-             - "443:443"
+             - "443"
         volumes:
             - ~/data/wp:/var/www/wordpress
         build:
@@ -56,7 +56,7 @@ services:
         networks:
             vpcbr:
         extra_hosts:
-            - "lusehair.42.fr:127.0.0.1"
+            - "demadelei.42.fr:127.0.0.1"
         env_file: .env
 
 networks:
