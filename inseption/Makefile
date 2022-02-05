@@ -30,6 +30,8 @@ clean:
 	yes 'y' | docker builder prune 
 fclean:
 	yes 'y' | docker system prune
+	sudo rm -rf /root/data/wp/*
+	sudo rm -rf /root/data/maria/*
 	
 
 re:	stop build_and_start

@@ -5,10 +5,10 @@ services:
         volumes:
                 - maria:/var/lib/mysql
         environment:
-            DB_LOGIN: "${DB_LOGIN}"
-            DB_PASS: "${DB_PASS}"
+            DB_LOGIN: "dmadelei"
+            DB_PASS: "password"
         ports: 
-            - "3306"
+            - "3306:3306"
         build:
             context: ./mariadb
             dockerfile: Dockerfile 
@@ -27,10 +27,10 @@ services:
             WP_PASS: "${WP_PASS}"
             WPU_1LOGIN: "${WPU_1LOGIN}"
             WPU_1PASS: "${WPU_1PASS}"
-            DB_LOGIN: "${DB_LOGIN}"
-            DB_PASS: "${DB_PASS}"
+            DB_LOGIN: "dmadelei"
+            DB_PASS: "password"
         ports:
-            - "5000"
+                - "5000:5000"
         build:
             context: ./wordpress
             dockerfile: Dockerfile
@@ -67,5 +67,4 @@ volumes:
                 driver_opts:
                         type: none
                         o: bind
-                        device:  /root/data/wp
-                      
+                        device:  /root/data/wp      
