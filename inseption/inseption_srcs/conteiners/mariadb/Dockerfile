@@ -12,6 +12,6 @@ RUN chmod +x setup_db.sh
 EXPOSE 3306
 
 COPY 50-server.cnf /etc/mysql/mariadb.conf.d
-RUN chmod 0444 /etc/mysql/50-server.cnf
+RUN chmod 0444 /etc/mysql/mariadb.conf.d/50-server.cnf
 
 ENTRYPOINT ["sh", "/setup_db.sh"]
