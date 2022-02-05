@@ -16,6 +16,5 @@ RUN chmod 777 tmp.sql
 EXPOSE 3306
 RUN rm /etc/mysql/mariadb.conf.d/50-server.cnf
 COPY 50-server.cnf /etc/mysql/mariadb.conf.d
-RUN chmod 777 /etc/mysql/mariadb.conf.d/50-server.cnf
 
 ENTRYPOINT ["sh", "/setup_db2.sh"]
