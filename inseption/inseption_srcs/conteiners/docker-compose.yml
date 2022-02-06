@@ -6,7 +6,7 @@ services:
                 - maria:/var/lib/mysql
         environment:
             DB_LOGIN: "dmadelei"
-            DB_PASS: "password"
+            DB_PASS: "11"
         ports: 
             - "3306:3306"
         build:
@@ -28,7 +28,7 @@ services:
             WPU_1LOGIN: "${WPU_1LOGIN}"
             WPU_1PASS: "${WPU_1PASS}"
             DB_LOGIN: "dmadelei"
-            DB_PASS: "password"
+            DB_PASS: "11"
         ports:
                 - "5000:5000"
         build:

@@ -10,6 +10,7 @@ RUN apt-get -y install openssl
 RUN apt-get -y install mariadb-client
 RUN apt-get -y install vim
 RUN apt-get -y install procps
+RUN apt-get -y install sendmail
 
 RUN	wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 RUN	chmod +x wp-cli.phar
